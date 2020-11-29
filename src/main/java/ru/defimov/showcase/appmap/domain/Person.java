@@ -17,18 +17,18 @@ import javax.persistence.Table;
 
 @Getter
 @Entity
-@Table(name = "PERSON")
-@Access(AccessType.FIELD)
-@NoArgsConstructor(access = AccessLevel.PROTECTED) //JPA
+@Table( name = "PERSON" )
+@Access( AccessType.FIELD )
+@NoArgsConstructor( access = AccessLevel.PROTECTED ) //JPA
 @RequiredArgsConstructor
 public class Person {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	@Column( name = "id" )
 	private Long id;
 
-	@Column(name = "name", nullable = false)
+	@Column( name = "name", nullable = false )
 	@NonNull
 	private String name;
 

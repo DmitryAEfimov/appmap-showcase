@@ -12,7 +12,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verify;
 
-@DisplayName("Person Service Impl Test")
+@DisplayName( "Person Service Impl Test" )
 @SpringBootTest
 class PersonServiceImplTest {
 
@@ -22,7 +22,7 @@ class PersonServiceImplTest {
 	private PersonService personService;
 
 	@Test
-	@DisplayName("Call repository save")
+	@DisplayName( "Call repository save" )
 	void save() {
 		personService.save(person());
 
@@ -30,7 +30,7 @@ class PersonServiceImplTest {
 	}
 
 	@Test
-	@DisplayName("Call repository find")
+	@DisplayName( "Call repository find" )
 	void findById() {
 		personService.findById(11);
 

@@ -11,7 +11,7 @@ import ru.defimov.showcase.appmap.domain.Person;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("Person Repository Test")
+@DisplayName( "Person Repository Test" )
 @SpringBootTest
 class PersonRepositoryTest {
 
@@ -25,19 +25,19 @@ class PersonRepositoryTest {
 	}
 
 	@Test
-	@DisplayName("Save entity properly")
+	@DisplayName( "Save entity properly" )
 	void shouldSaveEntityTest() {
 		val newPerson = repository.save(person);
 		assertThat(newPerson.getId()).isNotNull();
 	}
 
 	@Test
-	@DisplayName("Find entity properly")
+	@DisplayName( "Find entity properly" )
 	void shouldFindById() {
 		val newPerson = repository.save(person);
 		val foundById = repository.findById(newPerson.getId());
 		Assertions.assertThat(foundById.get())
-				.isNotNull().isEqualToComparingFieldByField(newPerson);
+		          .isNotNull().isEqualToComparingFieldByField(newPerson);
 	}
 
 	private Person person(String name) {

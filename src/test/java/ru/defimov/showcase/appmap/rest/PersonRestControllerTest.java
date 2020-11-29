@@ -21,8 +21,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@DisplayName("REST Controller Test")
-@WebMvcTest(PersonRestController.class)
+@DisplayName( "REST Controller Test" )
+@WebMvcTest( PersonRestController.class )
 class PersonRestControllerTest {
 
 	@Autowired
@@ -43,32 +43,32 @@ class PersonRestControllerTest {
 	}
 
 	@Test
-	@DisplayName("Return GET /api/person/{id}")
+	@DisplayName( "Return GET /api/person/{id}" )
 	void shouldResponsePersonDto() throws Exception {
 		when(service.findById(anyLong()))
 				.thenReturn(person);
 
 		mvc.perform(get("/api/person/" + personId).contentType(APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().contentType(APPLICATION_JSON))
-				.andExpect(jsonPath("$.id").value(personId))
-				.andExpect(jsonPath("$.name").value(personName));
+		   .andExpect(status().isOk())
+		   .andExpect(content().contentType(APPLICATION_JSON))
+		   .andExpect(jsonPath("$.id").value(personId))
+		   .andExpect(jsonPath("$.name").value(personName));
 	}
 
 	@Test
-	@DisplayName("Do POST /api/person")
+	@DisplayName( "Do POST /api/person" )
 	void shouldResponsePersonDtoWithId() throws Exception {
 		when(service.save(any()))
 				.thenReturn(person);
 
 		mvc.perform(
 				post("/api/person").contentType(APPLICATION_JSON)
-						.content("{\"name\": \"" + personName + "\"}")
-						.contentType(APPLICATION_JSON)
+				                   .content("{\"name\": \"" + personName + "\"}")
+				                   .contentType(APPLICATION_JSON)
 		)
-				.andExpect(status().isCreated())
-				.andExpect(content().contentType(APPLICATION_JSON))
-				.andExpect(jsonPath("$.id").value(personId))
-				.andExpect(jsonPath("$.name").value(personName));
+		   .andExpect(status().isCreated())
+		   .andExpect(content().contentType(APPLICATION_JSON))
+		   .andExpect(jsonPath("$.id").value(personId))
+		   .andExpect(jsonPath("$.name").value(personName));
 	}
 }

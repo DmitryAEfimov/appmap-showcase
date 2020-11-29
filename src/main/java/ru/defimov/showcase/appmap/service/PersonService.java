@@ -4,7 +4,7 @@ import ru.defimov.showcase.appmap.domain.Person;
 
 public interface PersonService {
 
-    Person save(Person person);
+	Person save(Person person);
 
-    Person findById(long id);
+	Person findById(long id);
 }

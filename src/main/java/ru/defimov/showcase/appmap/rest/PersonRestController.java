@@ -14,19 +14,20 @@ import ru.defimov.showcase.appmap.domain.Person;
 import ru.defimov.showcase.appmap.service.PersonService;
 
 @RestController
-@RequestMapping(path = "/api/person", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping( path = "/api/person", consumes = MediaType.APPLICATION_JSON_VALUE,
+		produces = MediaType.APPLICATION_JSON_VALUE )
 public class PersonRestController {
 
 	@Autowired
 	private PersonService service;
 
-	@GetMapping(value = "/{id}")
-	public PersonDto getById(@PathVariable("id") long id) {
+	@GetMapping( value = "/{id}" )
+	public PersonDto getById(@PathVariable( "id" ) long id) {
 		Person person = service.findById(id);
 		return asDto(person);
 	}
 
-	@PostMapping(value = "")
+	@PostMapping( value = "" )
 	public ResponseEntity<PersonDto> save(@RequestBody Person person) {
 		Person saved = service.save(person);
 		return ResponseEntity.status(HttpStatus.CREATED).body(asDto(saved));
